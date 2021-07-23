@@ -3,31 +3,20 @@ const sweets = [
     { id: 2, price: 10, name: 'ice-cream' },
     { id: 3, price: 30, name: 'coca-cola' },
 ]
-let answerOnQuestion = prompt('Что вы хотите покушать?')
+let searchChocolate = sweets.find(names => names.name === 'chocolate')
+let searchIceCream = sweets.find(names => names.name === 'ice-cream')
+let searchCocaCola = sweets.find(names => names.name === 'coca-cola')
 
-// //=========================    Find    =================================
-
-function askToSelectTheSweetFind(){
-        let result = sweets.find(answerOnQuestion => answerOnQuestion.name == 'coca-cola') 
-        return result 
+function askToSelectTheSweet() {
+    let answerOnQuestion = prompt('Что вы хотите покушать?')
+    if (answerOnQuestion === "chocolate") {
+        alert(`Товар ${searchChocolate.name} стоит ${searchChocolate.price} рублей`)
+    } else if (answerOnQuestion === "ice-cream") {
+        alert(`Товар ${searchIceCream.name} стоит ${searchIceCream.price} рублей`)
+    } else if (answerOnQuestion === "coca-cola") {
+        alert(`Товар ${searchCocaCola.name} стоит ${searchCocaCola.price} рублей`)
+    }
 }
- console.log(askToSelectTheSweetFind())
- 
-// //=========================    FindIndex    =================================
 
-function askToSelectTheSweetFindIndex(){
-        let resultIndex = sweets.findIndex(answerOnQuestion => answerOnQuestion.name == 'coca-cola') 
-        return resultIndex 
-}
- console.log(askToSelectTheSweetFindIndex())
- 
- 
-//=========================    for    =================================
- 
- 
- function askToSelectTheSweet(){
-           for( i = 2; i < sweets.length; i++){
-                   console.log(answerOnQuestion)
-           }
-   }
-   console.log(askToSelectTheSweet())
+
+ console.log(askToSelectTheSweet())
