@@ -6,21 +6,9 @@ const sweets = [
   { id: 3, price: 30, name: 'coca-cola' },
 ]
 let answerOnQuestion = prompt('Что вы хотите покушать?')
-let searchChocolate = sweets.find(names => names.name === answerOnQuestion)
-if (searchChocolate) {
+let searchProduct = sweets.find(names => names.name === answerOnQuestion)
+if (searchProduct) {
   alert(`Товар ${searchChocolate.name} стоит ${searchChocolate.price} рублей`)
-} else {
-  alert('Товар не был найден')
-}
-let searchIceCream = sweets.find(names => names.name === answerOnQuestion)
-if (searchIceCream) {
-  alert(`Товар ${searchIceCream.name} стоит ${searchIceCream.price} рублей`)
-} else {
-  alert('Товар не был найден')
-}
-let searchCocaCola = sweets.find(names => names.name === answerOnQuestion)
-if (searchCocaCola) {
-  alert(`Товар ${searchCocaCola.name} стоит ${searchCocaCola.price} рублей`)
 } else {
   alert('Товар не был найден')
 }
@@ -35,27 +23,41 @@ else if (enterCommand === 'Low price') {
   sweets.filter((element) => {
     return element.price < 15;
   }).forEach(lows => alert(`Самый дешевый товар - это ${lows.name} стоит ${lows.price}`))
-
-
 }
 else if (enterCommand === 'High price') {
   sweets.filter((element) => {
     return element.price > 15;
   }).forEach(highs => alert(`Самый дорогой товар - это ${highs.name} стоит ${highs.price}`))
-} else {
+} else if (enterCommand === 'All low price'){
+sweets.filter((element) => {
+element.price > 0 < 15 })
+ alert(`Low Price продукты есть в наличии`)
+ return 
+}
+else {
   alert('Товар не найден')
 }
-
-
 // ==========================  Задание 3     ==================================================
+
 
 const sweets = [
   { id: 1, price: 20, name: 'chocolate' },
   { id: 2, price: 10, name: 'ice-cream' },
   { id: 3, price: 30, name: 'coca-cola' },
 ]
-let newSweets = sweets.map(discount => `Цены со скидкой 20% - товар ${discount.name} по цене - ${Math.round(discount.price * 100 / 120)}`)
+// map
+
+const newSweets = sweets.map((discount) => {
+ return `id: 1, price: ${Math.round(discount.price * 100 / 120)}, name: ${discount.name}`
+})
 console.log(newSweets)
+
+// цикл for
+
+for(i = 0; i < sweets.length; i++){
+  sweets[i].price =  Math.round(sweets[i].price * 100 /120)
+  console.log(sweets[i])
+}
 
 
 // ============================   Задание 4  =======================================================
@@ -67,9 +69,23 @@ const sweets = [
   { id: 3, price: 30, name: 'coca-cola' },
 ]
 function giveDiscount() {
-  let discounts = prompt('Введиде скидку %')
-  let result = sweets.map(discount => `${discount.price}` - (`${discount.price}` * `${discounts / 100}`))
-  return `Товар со скидкой стоит  ${result}`
+  const discounts = prompt('Введиде скидку %')
+  // const discounts = 10
+  // Цикл for
+  if (Number(discounts)) {
+    for (i = 0; i < sweets.length; i++) {
+      sweets[i].price = Math.round((sweets[i].price) - (sweets[i].price * `${discounts}`/ 100 ))
+      console.log(sweets[i])
+  // map
+  // if (Number(discounts)) {
+  //   sweets.map((value) => {
+  //    return (value.price) - (value.price * `${discounts}`/ 100)
+  //   })
+   }
+   } else {
+    console.log('Неправильный формат скидки')
+  }
+  return
 }
 
-alert(giveDiscount())
+console.log(giveDiscount())
