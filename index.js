@@ -80,9 +80,17 @@ const sweets = [
   { id: 2, price: 10, name: 'ice-cream' },
   { id: 3, price: 30, name: 'coca-cola' },
 ]
+const giveDiscount = function(){
+
+}
+
+const giveDiscount = () => {
+
+}
+
 function giveDiscount(sweetsArray) {
-  // const discounts = prompt('Введиде скидку %')
-  const discounts = 10
+  const discounts = prompt('Введиде скидку %')
+  // const discounts = 10
 
   // Цикл for
   // if (Number(discounts)) {
@@ -93,10 +101,24 @@ function giveDiscount(sweetsArray) {
   // map
   if (Number(discounts)) {
 
-    let newSweetsArray = sweetsArray.map((sweet) => {
+    const newSweetsArray = sweetsArray.map((sweet) => {
       sweet.price = (sweet.price) - (sweet.price * `${discounts}` / 100)
       return sweet
     })
+    // for (let i = 0; i < newSweetsArray.length; i++) {
+    //   alert(`Продукт ${newSweetsArray[i].name} стоит со скидкой ${newSweetsArray[i].price} рублей`)
+    // }
+    newSweetsArray.forEach((sweet, sweetIndex) => {
+      alert(`Продукт ${sweet.name} стоит со скидкой ${sweet.price} рублей`)
+      alert(sweetIndex)
+    })
+    let newSweetsLowPrice = newSweetsArray.filter((sweet) => {
+      return sweet.price > 8
+    })
+    newSweetsLowPrice.forEach((sweet) =>{
+      alert(`${sweet.name}`)
+    })
+    
     return newSweetsArray
   }
   else {
@@ -109,33 +131,72 @@ console.log(giveDiscount(sweets))
 
 //=======================  Задание 5   =================================
 
-const numbers1 = [14, 1234, -5, 100];
-const numbers2 = [234, 12, 1234, 5, 23];
-const numbers3 = [-1, -4, 0, 1, 2, 5, -100];
+// const numbers1 = [14, 1234, -5, 100];
+// const numbers2 = [234, 12, 1234, 5, 23];
+// const numbers3 = [-1, -4, 0, 1, 2, 5, -100];
 
-spread
+// spread
 
- function findMinimalNumbers(numbers){
- return Math.min(...numbers)
- }
+//  function findMinimalNumbers(numbers){
+//  return Math.min(...numbers)
+//  }
 
- const findMinimalNumbers = function (numbers) {
-  return Math.min(...numbers)
- }
+//  const findMinimalNumbers = function (numbers) {
+//   return Math.min(...numbers)
+//  }
 
- const findMinimalNumbers = ((numbers) => {return Math.min(...numbers)})
+//  const findMinimalNumbers = ((numbers) => {return Math.min(...numbers)})
 
-function findMinimalNumbers(numbers){
+// function findMinimalNumbers(numbers){
 
-  for(i = 0; i < numbers.length; i++){
-   return (Math.min(...numbers))
-  }
-  return 
-   }
+//   for(i = 0; i < numbers.length; i++){
+//    return (Math.min(...numbers))
+//   }
+//   return 
+//    }
 
-console.log(findMinimalNumbers(numbers1))
-console.log(findMinimalNumbers(numbers2))
-console.log(findMinimalNumbers(numbers3))
+// console.log(findMinimalNumbers(numbers1))
+// console.log(findMinimalNumbers(numbers2))
+// console.log(findMinimalNumbers(numbers3))
 
 //========================= Задание 6  =====================================
+
+// const matrix = [
+//   [14, 1234, -5, 100],
+//   [234, 12, 1234, 5, 23],
+//   [-1, -4, 0, 1, 2, 15, -100],
+//  ];
+ 
+// for(let i = 0; i < matrix.length; i++){
+//   for(let y = 0; y < matrix[i].length; y++){
+//     console.log(i,y)
+// }
+// }
+
+// ====================================  Задание 7   ===========================================
+
+const matrix = [
+  [14, 1234, -5, 100],
+  [234, 12, 1234, 5, 23],
+  [-1, -4, 0, 1, 2, 15, -100],
+ ];
+ 
+ const matrix2 = [
+  [75, 45, 2, -5, 12],
+  [43, 100, 101, 102, 0, 0.5],
+  [6, 1, 234, 50, 21],
+ ]
+
+ const matrix3 = [
+  [75, 45, 2, -5555, 12],
+  [43, 100, 101, 102, 0, 0.5],
+  [6, -1, 234, 50, 21],
+ ] 
+ function getSumOfLowNumbersInMatrix (min){
+  for(let i = 0; i < min.length; i++){ 
+    console.log(Math.min.apply(null, min[i]))
+}
+return
+ }
+  getSumOfLowNumbersInMatrix(matrix3)
 
