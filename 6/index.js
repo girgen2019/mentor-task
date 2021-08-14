@@ -1,4 +1,4 @@
-const studentName = prompt('Введите ваше имя…')
+const studentName = prompt('Введите ваше имя…', 'Gena')
 
 function namePrompt() {
     if (studentName) {

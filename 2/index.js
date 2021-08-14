@@ -24,7 +24,7 @@ console.log(null, anyNull, typeof anyNull)
 let anyUndefined = undefined
 console.log(undefined, anyUndefined, typeof anyUndefined)
 
-let anyObject = "Object"
+let anyObject = {Object}
 console.log(Object, anyObject, typeof anyObject)
 
 let anySymbol = "Symbol"
